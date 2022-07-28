@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     public class XMLNode
     {
-        public string? Name { get; set; }
+        public string Name { get; set; }
         public string? Value { get; set; }   
         public List<XMLNode> ChildNodes { get; set; } = new List<XMLNode>();
     }

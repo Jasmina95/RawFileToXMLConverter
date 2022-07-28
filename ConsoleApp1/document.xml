@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <people>
   <person>
-    <firstname>Carl Gustaf</firstname>
     <lastname>Bernadotte</lastname>
     <phone>
       <mobile>0768-101801</mobile>
@@ -9,7 +8,6 @@
     </phone>
     <address>
       <street>Drottningholms slott</street>
-      <city>Stockholm</city>
       <zipcode>10001</zipcode>
     </address>
     <family>

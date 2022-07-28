@@ -23,8 +23,9 @@ namespace ConsoleApp1
                         var nextLine = sr.ReadLine();
                         var strings = nextLine.Split('|');
 
-                        if (nextLine.StartsWith("P"))
-                        {
+                        //if (nextLine.StartsWith("P") || nextLine.StartsWith("p"))
+                        if (strings[0].ToUpper() == "P")
+                            {
                             if (!fileIsValid)
                             {
                                 fileIsValid = true;
@@ -42,7 +43,7 @@ namespace ConsoleApp1
                         {
                             XMLNode lastPerson = People.ChildNodes.Last();
 
-                            switch (strings[0])
+                            switch (strings[0].ToUpper())
                             {
                                 case "A":
                                     XMLNode Address = new XMLNode { Name = "address" };
@@ -79,9 +80,8 @@ namespace ConsoleApp1
                                     lastPerson.ChildNodes.Add(Family);
                                     break;
                                 default:
-                                    break;
+                                    throw new Exception("File Invalid!");
                             }
-
                         }
                         else
                         {
@@ -94,6 +94,8 @@ namespace ConsoleApp1
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                return null;
+
             }
 
             return People;

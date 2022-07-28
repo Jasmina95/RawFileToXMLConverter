@@ -12,6 +12,11 @@ namespace ConsoleApp1
 
         public static void WriteXML(XMLNode node)
         {
+            if (node == null)
+            {
+                return;
+            }
+
             //Declare a new XMLDocument object
             XmlDocument doc = new XmlDocument();
 
@@ -48,7 +53,9 @@ namespace ConsoleApp1
                 }
             }
 
-            if (!(node.Value == null && node.ChildNodes.Count == 0))
+            // If node doesn't have at least one child and no value then it won't be added to the tree
+            // to avoid having empty tag elements in the xml file 
+            if (!((node.Value == null || node.Value == "") && node.ChildNodes.Count == 0))
             {
                 newElement.AppendChild(doc.CreateTextNode(node.Value));
                 element.AppendChild(newElement);
