@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -37,8 +38,9 @@ namespace ConsoleApp1
                     MakeNodeTree(doc, element, child);
                 }
             }
-            
-            doc.Save(Directory.GetCurrentDirectory() + "../../../../document.xml");
+#pragma warning disable CS8604 // Possible null reference argument.
+            doc.Save(new Uri(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "../../../Document.xml")).LocalPath);
+#pragma warning restore CS8604 // Possible null reference argument.
         }
 
         private static void MakeNodeTree (XmlDocument doc, XmlElement element, XMLNode node)
